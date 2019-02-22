@@ -1,0 +1,13 @@
+div.hero {
+    background-color: darkgray;
+    display: inline-block;
+    height: 180px;
+    margin: 10px;
+    overflow: hidden;
+    padding: 10px;
+    width: 180px;
+}
+
+div.hero > img {
+    max-height: 120px;
+}

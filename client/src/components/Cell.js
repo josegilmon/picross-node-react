@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
+import { Constants } from '../common/constants'
 
 import './Cell.scss'
 
 class Cell extends Component {
 
-  statuses = ['empty', 'ok', 'ko', 'mark']
-
   constructor (props) {
     super(props)
     this.state = {
-      status: Math.random() * 4 >> 0
+      status: 0
     }
+  }
+
+  click (ev) {
+    ev.preventDefault()
+    let newStatus = ev.button === 0 ? 1 : 3
+    this.setState({ status: newStatus })
   }
 
   render () {
@@ -19,7 +24,10 @@ class Cell extends Component {
     const { status } = this.state
 
     return (
-      <div className={`cell ${this.statuses[status]}`} key={number}/>
+      <div key={number} className={`cell ${Constants.cellStatus[status]}`}
+           onClick={(ev) => this.click(ev)}
+           onContextMenu={(ev) => this.click(ev)}
+      />
     )
   }
 }

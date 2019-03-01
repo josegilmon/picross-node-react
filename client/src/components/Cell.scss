@@ -1,17 +1,18 @@
 .cell {
 
   border: 1px solid white;
+  cursor: pointer;
   margin: 1px;
   height: 20px;
   width: 20px;
 
-  &.ok {
+  &.right {
     background-color: limegreen;
   }
-  &.ko {
+  &.error {
     background-color: darkred;
   }
-  &.mark {
+  &.check {
     background-color: darkgrey;
   }
 }

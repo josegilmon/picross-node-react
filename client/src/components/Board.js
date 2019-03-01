@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Cell from './Cell'
 
+import './Board.scss'
+
 class Board extends Component {
 
   constructor (props) {
@@ -10,15 +12,21 @@ class Board extends Component {
     }
   }
 
+  createBoard = (size) => {
+    let board = []
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < size; j ++) {
+        board.push(<Cell number={j + i * size} />)
+      }
+    }
+    return board
+  }
+
   render () {
     return (
-      <div>
-        <Cell number="1"/>
-        <Cell number="2"/>
-        <Cell number="3"/>
-        <Cell number="4"/>
+      <div className="grid">
+        {this.createBoard(20)}
       </div>
-
     )
   }
 }

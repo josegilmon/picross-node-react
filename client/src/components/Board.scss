@@ -1,0 +1,4 @@
+.grid {
+  display: inline-grid;
+  grid-template: repeat(20, 5%) / repeat(20, 5%);
+}

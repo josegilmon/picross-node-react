@@ -1,4 +1,9 @@
+:root {
+  --columns: 5;
+  --rows: 5;
+}
+
 .grid {
   display: inline-grid;
-  grid-template: repeat(20, 5%) / repeat(20, 5%);
+  grid-template: auto repeat(var(--rows), auto) / auto repeat(var(--columns), auto);
 }

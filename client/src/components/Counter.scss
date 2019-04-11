@@ -1,0 +1,14 @@
+.counter {
+
+  div {
+    color: white;
+    display: inline;
+    padding: 0 2px;
+  }
+
+  &.vertical {
+    div {
+      display: block;
+    }
+  }
+}

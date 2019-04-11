@@ -13,7 +13,6 @@ class App extends Component {
           <Route exact path='/' component={Home}/>
           <Route path='/list' component={List}/>
         </Switch>
-        <footer>Data provided by Marvel. © 2014 Marvel</footer>
       </div>
     )
   }

@@ -20,13 +20,19 @@ class Cell extends Component {
 
   render () {
 
-    const { number } = this.props
+    const { i, j } = this.props
     const { status } = this.state
 
+    const { cellWidth, counterWidth, cellStatus } = Constants
+
+    const x = i * cellWidth + counterWidth
+    const y = j * cellWidth + counterWidth
+
     return (
-      <div key={number} className={`cell ${Constants.cellStatus[status]}`}
-           onClick={(ev) => this.click(ev)}
-           onContextMenu={(ev) => this.click(ev)}
+      <rect key={'' + i + j} x={x} y={y}
+            className={'cell ' + cellStatus[status]}
+            onClick={(ev) => this.click(ev)}
+            onContextMenu={(ev) => this.click(ev)}
       />
     )
   }

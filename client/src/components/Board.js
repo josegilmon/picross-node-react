@@ -17,17 +17,18 @@ class Board extends Component {
 
     const nonogram = '00100 01010 01110 01010 01010'.split(' ')
     const rowCounters = nonogram.map(r => r.split('0').filter(s => !!s).map(s => s.length))
-    const columnCounters = [[0],[4],[1, 1],[4],[0]]
+    const columnCounters = [[0], [4], [1, 1], [4], [0]]
 
     size = nonogram.length
 
     let board = []
     for (let i = 0; i <= size; i++) {
       for (let j = 0; j <= size; j++) {
+        const key = `${i}${j}`
         if (i === 0) {
-          board.push(j ? <Counter steps={columnCounters[j - 1]} vertical='true'/> : <div/>)
+          board.push(j ? <Counter pos={j} steps={columnCounters[j - 1]} /> : <text>-</text>)
         } else {
-          board.push(j ? <Cell number={j + i * size}/> : <Counter steps={rowCounters[i - 1]}/>)
+          board.push(j ? <Cell i={i} j={j}/> : <Counter pos={i} steps={rowCounters[i - 1]} vertical='true' />)
         }
       }
     }
@@ -37,7 +38,12 @@ class Board extends Component {
   render () {
     return (
       <div className="grid">
-        {this.createBoard(20)}
+        <svg version="1.1"
+             baseProfile="full"
+             width="360" height="360"
+             xmlns="http://www.w3.org/2000/svg">
+          {this.createBoard(20)}
+        </svg>
       </div>
     )
   }
